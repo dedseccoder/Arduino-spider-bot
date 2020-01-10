@@ -5,9 +5,11 @@ int LED = 13;
 int servoPin1 = 9;
 int servoPin2 = 7;
 int servoPin3 = 11;
+
 Servo servo1;
 Servo servo2;
 Servo servo3;
+
 void setup()
 {
   Serial.begin(9600);
@@ -22,7 +24,7 @@ void loop()
   if (Serial.available())
   {
     val = Serial.read();
-  if (val == '0') //дефолтное положение для всего
+    if (val == '0') //дефолтное положение для всего
     {
      servo3.write(90);
      delay (1000);
@@ -30,44 +32,44 @@ void loop()
      servo2.write(90);
      delay (1000);
     }
-  else if (val == '1') //поднятие правой ноги
+    else if (val == '1') //поднятие правой ноги
     {
      servo3.write (65);
      delay (1000);
     }
-  else if ( val == '2')//поднятие левой ноги
+    else if ( val == '2')//поднятие левой ноги
     {
      servo3.write (115);
      delay (1000);
     }
-  else if (val == '3')  //правая нога вперед
+    else if (val == '3')  //правая нога вперед
     {
      servo1.write (130);
      delay (1000);
     }
-  else if (val == '4') //левая нога впред
+    else if (val == '4') //левая нога впред
     {
      servo2.write (50);
      delay (1000);
     }
-  else if (val == '5') // правая нога дефолт
+    else if (val == '5') // правая нога дефолт
     {
       servo1.write (90);
       delay (1000);
     }
-  else if (val == '6') // левая нога дефолт
+    else if (val == '6') // левая нога дефолт
     {
       servo2.write (90);
       delay (1000);
     }
-  else if (val == '8')
+    else if (val == '8')
     {
      servo1.write (0);
      delay (1000);
      servo1.write (180);
      delay (1000);
     }
-  else if ( val == '9')
+    else if ( val == '9')
     {
      servo2.write (0);
      delay (1000);
